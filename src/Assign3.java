@@ -5,8 +5,6 @@
  * EXERCISE: Module 3 Deck of Cards
  */
 
-//TEST CHANGE
-
 public class Assign3
 {
 
