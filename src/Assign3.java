@@ -1,3 +1,9 @@
+/*
+ * STUDENTS: Jason Pettit, Sergio Quiroz, Marcus Gonzalez, 
+ *           Adam Houser, Colin Reed
+ * COURSE: CST 338-30_SU19
+ * EXERCISE: Module 3 Deck of Cards
+ */
 
 public class Assign3
 {
