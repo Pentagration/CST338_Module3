@@ -15,3 +15,14 @@ public class Assign3
    }
 
 }
+
+//START class Card
+class Card
+{
+   public enum Suit
+   {
+      clubs, diamonds, hearts, spades;
+   }
+   
+   
+}
