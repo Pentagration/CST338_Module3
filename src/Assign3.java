@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
  * STUDENTS: Jason Pettit, Sergio Quiroz, Marcus Gonzalez, 
  *           Adam Houser, Colin Reed
@@ -170,7 +172,7 @@ class Card
 //START class Hand
 class Hand
 {
-   public int MAX_CARDS = 100;
+   public int MAX_CARDS = 52;
    
    private Card[] myCards;
    private int numCards;
@@ -178,10 +180,38 @@ class Hand
    //Default constructor
    public Hand()
    {
-      
+      this.myCards = new Card[MAX_CARDS];
+      this.numCards = 0;
    }
    
    public void resetHand()
+   {
+      this.numCards = 0;
+   }
+   
+   public boolean takeCard(Card card)
+   {
+      boolean newCard = false;
+      
+      if (numCards < MAX_CARDS)
+      {
+         myCards[numCards] = new Card(card.getValue(), card.getSuit());
+         numCards++;
+         newCard = true;
+      }
+      
+      return newCard;
+   }
+   
+   public Card playCard()
+   {
+      Card disCard = myCards[numCards - 1];
+      numCards--;
+      
+      return disCard;   
+   }
+   
+   public String toString()
    {
       
    }
