@@ -58,15 +58,6 @@ class Card
    public Card(char value, Suit suit)
    {
       this.set(value, suit);
-      
-      /* From the spec: "Because we have the errorFlag member, the
-       * constructor (via the mutator), can set that member when it gets bad
-       * data; it does not have to assign default values upon receipt of bad
-       * data
-       */
-      
-      //Adam-I think we can leave this as the one line since we're checking 
-      //isValid() inside set()
    }
    
    //START mutators
