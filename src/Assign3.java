@@ -16,18 +16,18 @@ public class Assign3
       Card card3 = new Card('n', Card.Suit.diamonds); //tests invalid
       
       //print out cards
-      card1.toString();
-      card2.toString();
-      card3.toString();
+      System.out.println(card1.toString());
+      System.out.println(card2.toString());
+      System.out.println(card3.toString());
       
       //change cards
       card1.set('P', Card.Suit.spades);
-      card3.set('j',  Card.Suit.clubs);
+      card3.set('J',  Card.Suit.clubs);
       
       //print out cards
-      card1.toString();
-      card2.toString();
-      card3.toString();
+      System.out.println(card1.toString());
+      System.out.println(card2.toString());
+      System.out.println(card3.toString());
 
    }
 
@@ -54,19 +54,16 @@ class Card
    //Constructor
    public Card(char value, Suit suit)
    {
-      if(errorFlag == false)
-      {
-         this.set(value, suit);  
-      }
-      else
-      {
-         /* From the spec: "Because we have the errorFlag member, the
-          * constructor (via the mutator), can set that member when it gets bad
-          * data; it does not have to assign default values upon receipt of bad
-          * data
-          */
-      }
-
+      this.set(value, suit);
+      
+      /* From the spec: "Because we have the errorFlag member, the
+       * constructor (via the mutator), can set that member when it gets bad
+       * data; it does not have to assign default values upon receipt of bad
+       * data
+       */
+      
+      //Adam-I think we can leave this as the one line since we're checking 
+      //isValid() inside set()
    }
    
    //START mutators
