@@ -139,7 +139,7 @@ class Card
       {
          if (Character.toUpperCase(value) == index)
          {
-            isValid = true;
+            return true;
          }
       }
       return isValid;
@@ -160,7 +160,7 @@ class Card
       }
       else
       {
-      String card = value + " of " + suit;
+         String card = value + " of " + suit;
       return card;
       }
     } 
