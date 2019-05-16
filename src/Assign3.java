@@ -85,6 +85,19 @@ class Card
    {
       return this.errorFlag;
    }
+   
+   public boolean equals(Card card)
+   {
+      if (this.getValue() == card.getValue() && this.getSuit() == card.getSuit()
+            && this.getErrorFlag() == card.getErrorFlag())
+      {
+         return true;
+      }
+      else
+      {
+         return false;
+      }
+   }
    //END accessors
    
    
@@ -125,6 +138,26 @@ class Card
       String card = value + " of " + suit;
       return card;
       }
-    }
-  
+    } 
+}
+//END class Card
+
+//START class Card
+class Hand
+{
+   public int MAX_CARDS = 100;
+   
+   private Card[] myCards;
+   private int numCards;
+   
+   //Default constructor
+   public Hand()
+   {
+      
+   }
+   
+   public void resetHand()
+   {
+      
+   }
 }
