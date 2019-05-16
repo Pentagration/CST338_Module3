@@ -172,7 +172,7 @@ class Card
 //START class Hand
 class Hand
 {
-   public int MAX_CARDS = 52;
+   public static final int MAX_CARDS = 52;
    
    private Card[] myCards;
    private int numCards;
