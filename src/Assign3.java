@@ -195,8 +195,7 @@ class Hand
       
       if (numCards < MAX_CARDS)
       {
-         myCards[numCards] = new Card(card.getValue(), card.getSuit());
-         numCards++;
+         myCards[numCards++] = new Card(card.getValue(), card.getSuit());
          newCard = true;
       }
       
@@ -205,10 +204,7 @@ class Hand
    
    public Card playCard()
    {
-      Card disCard = myCards[numCards - 1];
-      numCards--;
-      
-      return disCard;   
+      return myCards[--numCards]; 
    }
    
    public String toString()
