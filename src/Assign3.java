@@ -99,18 +99,18 @@ class Card
    {
       return this.errorFlag;
    }
+   //END accessors
    
    public boolean equals(Card card)
    {
+      boolean isEqual = false;
+      
       if (this.getValue() == card.getValue() && this.getSuit() == card.getSuit()
             && this.getErrorFlag() == card.getErrorFlag())
       {
-         return true;
+         isEqual = true;
       }
-      else
-      {
-         return false;
-      }
+      return isEqual;
    }
    //END accessors
    
