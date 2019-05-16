@@ -253,13 +253,21 @@ class Deck
 
    }
 
-   public Card inspectCard(ink k)
+   public Card inspectCard(int k)
    {
 
    }
 
-   private void allocateMasterPack()
+   private static void allocateMasterPack()
    {
-      
+      char[] value = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
+     '3', '2'};
+      for (char val: value)
+      {
+         masterPack.append(Card(val, Card.Suit.clubs));
+         masterPack.append(Card(val, Card.Suit.spades));
+         masterPack.append(Card(val, Card.Suit.hearts));
+         masterPack.append(Card(val, Card.Suit.diamonds));
+      }
    }
 }
