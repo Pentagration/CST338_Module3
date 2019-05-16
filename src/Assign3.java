@@ -29,6 +29,9 @@ public class Assign3
       System.out.println(card2.toString());
       System.out.println(card3.toString());
 
+      //test equals
+      System.out.println(card1.equals(card1));
+      System.out.println(card1.equals(card2));
    }
 
 }
