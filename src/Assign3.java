@@ -121,18 +121,16 @@ class Card
       char[] validValues = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', 
                              '5', '4', '3', '2'};
       
+      boolean isValid = false;
+      
       for (char index : validValues)
       {
          if (Character.toUpperCase(value) == index)
          {
-            return true;
-         }
-         else
-         {
-            return false;
+            isValid = true;
          }
       }
-      return false;
+      return isValid;
    }
    
    /** 
@@ -157,7 +155,7 @@ class Card
 }
 //END class Card
 
-//START class Card
+//START class Hand
 class Hand
 {
    public int MAX_CARDS = 100;
