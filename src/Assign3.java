@@ -193,9 +193,9 @@ class Hand
    {
       boolean newCard = false;
       
-      if (numCards < MAX_CARDS)
+      if (numCards + 1 < MAX_CARDS)
       {
-         myCards[numCards++] = new Card(card.getValue(), card.getSuit());
+         myCards[++numCards] = new Card(card.getValue(), card.getSuit());
          newCard = true;
       }
       
