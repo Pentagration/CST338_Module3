@@ -209,6 +209,12 @@ class Hand
    
    public String toString()
    {
-      
+      StringBuilder sb = new StringBuilder("( ");
+      for (Card card:myCards)
+      {
+         sb.append(card.getValue() + " " + card.getSuit());
+      }
+      sb.append(" )");
+      return sb.toString();
    }
 }
