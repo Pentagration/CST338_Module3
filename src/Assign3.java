@@ -31,16 +31,100 @@ class Card
    //Default constructor
    public Card()
    {
-      this.value = 'A';
-      this.suit = Suit.spades;
+      this.set('A', Suit.spades);
    }
    
    //Constructor
    public Card(char value, Suit suit)
    {
-      this.value = value;
-      this.suit = suit;
+      if(errorFlag == false)
+      {
+         this.set(value, suit);  
+      }
+      else
+      {
+         /* From the spec: "Because we have the errorFlag member, the
+          * constructor (via the mutator), can set that member when it gets bad
+          * data; it does not have to assign default values upon receipt of bad
+          * data
+          */
+      }
+
    }
    
+   //START mutators
+   public boolean set(char value, Suit suit)
+   {
+      if(isValid(value, suit))
+      {
+         this.value = value;
+         this.suit = suit;
+         this.errorFlag = false;
+      }
+      else
+      {
+         this.errorFlag = true;
+      }
+      
+      return this.errorFlag;
+   }
+   //END mutators
+   
+   //START accessors
+   public Suit getSuit()
+   {
+      return this.suit;
+   }
+   
+   public char getValue()
+   {
+      return this.value;
+   }
+   
+   public boolean getErrorFlag()
+   {
+      return this.errorFlag;
+   }
+   //END accessors
+   
+   
+   
+   private boolean isValid(char value, Suit suit)
+   {
+      char[] validValues = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', 
+                             '5', '4', '3', '2'};
+      
+      for (char index : validValues)
+      {
+         if (Character.toUpperCase(value) == index)
+         {
+            return true;
+         }
+         else
+         {
+            return false;
+         }
+      }
+   }
+   
+   /** 
+    * toString() concatenates the A thru 2 card value and the card suit into a
+    * single string "value of suit" example: "A of clubs"
+    * 
+    * @param none
+    * @return Returns a string
+    */
+   public String toString()
+   {
+      if(errorFlag == true)
+      {
+         return "[invalid]";
+      }
+      else
+      {
+      String card = value + " of " + suit;
+      return card;
+      }
+    }
   
 }
