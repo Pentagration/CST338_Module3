@@ -10,7 +10,24 @@ public class Assign3
 
    public static void main(String[] args)
    {
-      // TODO Auto-generated method stub
+      //generate some cards, good and bad
+      Card card1 = new Card(); //tests default
+      Card card2 = new Card('3', Card.Suit.hearts); //tests other constructor
+      Card card3 = new Card('n', Card.Suit.diamonds); //tests invalid
+      
+      //print out cards
+      card1.toString();
+      card2.toString();
+      card3.toString();
+      
+      //change cards
+      card1.set('P', Card.Suit.spades);
+      card3.set('j',  Card.Suit.clubs);
+      
+      //print out cards
+      card1.toString();
+      card2.toString();
+      card3.toString();
 
    }
 
@@ -118,6 +135,7 @@ class Card
             return false;
          }
       }
+      return false;
    }
    
    /** 
