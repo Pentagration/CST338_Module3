@@ -212,9 +212,54 @@ class Hand
       StringBuilder sb = new StringBuilder("( ");
       for (Card card:myCards)
       {
-         sb.append(card.getValue() + " " + card.getSuit());
+         sb.append(card.getValue() + "of" + card.getSuit());
       }
       sb.append(" )");
       return sb.toString();
+   }
+}
+//END class Hand
+
+//START class Deck
+class Deck
+{
+   public static final int MAX_CARDS = 6 * 52;
+   private static Card[] masterPack = new Card[52];
+   Card[] cards;
+   int topCard;
+
+   public Deck()
+   {
+
+   }
+
+   public Deck(int numPacks)
+   {
+
+   }
+
+   public void init(int numPacks)
+   {
+
+   }
+
+   public void shuffle()
+   {
+
+   }
+
+   public Card dealCard()
+   {
+
+   }
+
+   public Card inspectCard(ink k)
+   {
+
+   }
+
+   private void allocateMasterPack()
+   {
+      
    }
 }
