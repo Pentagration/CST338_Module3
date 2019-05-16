@@ -48,6 +48,20 @@ class Card
    private Suit suit;
    private boolean errorFlag;
    
+   
+   /**
+    * There is a default Card constructor Card() that sets the card to
+    * 'A', Suit.spades.  
+    * 
+    * There is a constructor Card(char value, Suit suit) that sets the card
+    * according to the parameters.  
+    * 
+    * @param value = 'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
+    * '3', '2'
+    * 
+    * suit = clubs, diamonds, hearts, spades
+    */
+   
    //Default constructor
    public Card()
    {
@@ -78,6 +92,12 @@ class Card
    }
    //END mutators
    
+   
+   /**
+    * There are three accessors in the Card class getSuit(), getValue(), and 
+    * getErrorFlag().
+    */
+   
    //START accessors
    public Suit getSuit()
    {
@@ -107,8 +127,6 @@ class Card
       return isEqual;
    }
    //END accessors
-   
-   
    
    private boolean isValid(char value, Suit suit)
    {
