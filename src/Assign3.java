@@ -327,7 +327,8 @@ class Deck
 
    public Deck(int numPacks)
    {
-
+      allocateMasterPack();
+      cards = new Card[]
    }
 
    public void init(int numPacks)
@@ -355,7 +356,7 @@ class Deck
       Card checkPack = new Card('A', Card.Suit.clubs);
       char[] value = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
      '3', '2'};
-      if (masterPack[0].equals(checkPack))
+      if (masterPack[0] != null)
          return;
       for (int i = 0, j=0; i < value.length;i++)
       {
