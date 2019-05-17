@@ -321,7 +321,8 @@ class Deck
 
    public Deck()
    {
-
+      allocateMasterPack();
+      cards = new Card[52];
    }
 
    public Deck(int numPacks)
@@ -351,18 +352,17 @@ class Deck
 
    private static void allocateMasterPack()
    {
+      Card checkPack = new Card('A', Card.Suit.clubs);
       char[] value = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
      '3', '2'};
+      if (masterPack[0].equals(checkPack))
+         return;
       for (int i = 0, j=0; i < value.length;i++)
       {
-         Card card1 = new Card(value[i], Card.Suit.clubs);
-         masterPack[j++] = card1;
-         Card card2 = new Card(value[i], Card.Suit.spades);
-         masterPack[j++] = card2;
-         Card card3 = new Card(value[i], Card.Suit.hearts);
-         masterPack[j++] = card3;
-         Card card4 = new Card(value[i], Card.Suit.diamonds);
-         masterPack[j++] = card4;
+         masterPack[j++] = new Card(value[i], Card.Suit.clubs);
+         masterPack[j++] = new Card(value[i], Card.Suit.spades);
+         masterPack[j++] = new Card(value[i], Card.Suit.hearts);
+         masterPack[j++] = new Card(value[i], Card.Suit.diamonds);
       }
    }
 }
