@@ -12,6 +12,7 @@ public class Assign3
 
    public static void main(String[] args)
    {
+      //testing Card class
       //generate some cards, good and bad
       Card card1 = new Card(); //tests default
       Card card2 = new Card('3', Card.Suit.hearts); //tests other constructor
@@ -34,6 +35,59 @@ public class Assign3
       //test equals
       System.out.println(card1.equals(card1));
       System.out.println(card1.equals(card2));
+      
+      //testing Hand class
+      //create Cards and one Hand
+      Card hCard1 = new Card();
+      Card hCard2 = new Card('a', Card.Suit.clubs);
+      Card hCard3 = new Card('a', Card.Suit.hearts);
+      Card hCard4 = new Card('a', Card.Suit.diamonds);
+      Card hCard5 = new Card('t', Card.Suit.clubs);
+      Hand hand1 = new Hand();
+      
+      //use a loop to populate Hand with Cards
+      for (int i = 0; i < Hand.MAX_CARDS; i++)
+      {
+         if (i % 5 == 0) 
+         {
+            hand1.takeCard(hCard5);
+         }
+         else if (i % 5 == 1)
+         {
+            hand1.takeCard(hCard4);
+         }
+         else if (i % 5 == 2)
+         {
+            hand1.takeCard(hCard3);
+         }
+         else if (i % 5 == 3)
+         {
+            hand1.takeCard(hCard2);
+         }
+         else
+         {
+            hand1.takeCard(hCard1);
+         }
+      }
+      
+      //display hand using toString()
+      System.out.println(hand1.toString());
+      
+      //test inspectCard good
+      System.out.println(hand1.inspectCard(1).toString());
+      
+      //play each card from Hand using a loop and display
+      while (hand1.getNumCards() > 0)
+      {
+         System.out.println("Playing " + hand1.playCard().toString());
+      }
+      
+      //test inspectCard bad
+
+      System.out.println(hand1.inspectCard(1).toString());
+      
+      //display now empty Hand
+      System.out.println(hand1.toString());
    }
 
 }
@@ -193,9 +247,10 @@ class Hand
    {
       boolean newCard = false;
       
-      if (numCards + 1 < MAX_CARDS)
+      if (numCards + 1 <= MAX_CARDS)
       {
-         myCards[++numCards] = new Card(card.getValue(), card.getSuit());
+         myCards[numCards] = new Card(card.getValue(), card.getSuit());
+         this.numCards++;
          newCard = true;
       }
       
@@ -204,18 +259,48 @@ class Hand
    
    public Card playCard()
    {
-      return myCards[--numCards]; 
+      Card play = myCards[numCards-1];
+      myCards[numCards-1] = null;
+      this.numCards--;
+      return play; 
    }
    
    public String toString()
    {
-      StringBuilder sb = new StringBuilder("( ");
-      for (Card card:myCards)
-      {
-         sb.append(card.getValue() + "of" + card.getSuit());
-      }
+      StringBuilder sb = new StringBuilder("Hand = ( ");
+      if (this.numCards > 0)
+         {
+         for (Card card:myCards)
+            {
+            sb.append(card.toString() + ", ");
+            //sb.append(card.getValue() + "of" + card.getSuit());
+            //I think the above is a little easier.  I'm not sure
+            //how to best limit.  Could do a counter and if counter % 5 = 0
+            //then insert a /n character maybe?
+            }
+         }
       sb.append(" )");
       return sb.toString();
+   }
+   
+   public int getNumCards()
+   {
+      return this.numCards;
+   }
+   
+   public Card inspectCard(int k)
+   //shoud we add a check to see if the int k is out of bounds of the array
+   //before going into the check below?
+   {
+      if (this.myCards[k] != null)
+      {
+         return this.myCards[k];
+      }
+      else
+      {
+         Card tempCard = new Card('z', Card.Suit.clubs);
+         return tempCard;
+      }
    }
 }
 //END class Hand
