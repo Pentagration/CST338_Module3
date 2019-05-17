@@ -141,7 +141,7 @@ class Card
       {
          if (Character.toUpperCase(value) == index)
          {
-            return true;
+            isValid = true;
          }
       }
       return isValid;
