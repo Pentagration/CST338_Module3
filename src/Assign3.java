@@ -328,22 +328,39 @@ class Deck
    public Deck(int numPacks)
    {
       allocateMasterPack();
-      cards = new Card[]
+      if (numPacks >= 6)
+         cards = new Card[6];
+      else
+         cards = new Card[numPacks * 52];
    }
 
    public void init(int numPacks)
    {
-
+      for (int i = 0; i < numPacks; i++)
+      {
+         System.arraycopy(masterPack, 0, this.cards, i * masterPack.length,
+            masterPack.length);
+      }
+      topCard = (numPacks * 52) - 1;
    }
 
    public void shuffle()
    {
 
    }
-
+/*
+returns a card while topCard is not negative, otherwise return null
+*/
    public Card dealCard()
    {
+      if (topCard != -1)                        //since a card is stored at 0, deck is empty at -1
+         return masterPack[topCard--];
+      return null;
+   }
 
+   public int getTopCard()
+   {
+      return topCard;
    }
 
    public Card inspectCard(int k)
@@ -353,11 +370,10 @@ class Deck
 
    private static void allocateMasterPack()
    {
-      Card checkPack = new Card('A', Card.Suit.clubs);
-      char[] value = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
-     '3', '2'};
       if (masterPack[0] != null)
          return;
+      char[] value = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
+      '3', '2'};
       for (int i = 0, j=0; i < value.length;i++)
       {
          masterPack[j++] = new Card(value[i], Card.Suit.clubs);
