@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /*
  * STUDENTS: Jason Pettit, Sergio Quiroz, Marcus Gonzalez, 
  *           Adam Houser, Colin Reed
