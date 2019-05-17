@@ -216,7 +216,7 @@ class Card
       }
       else
       {
-         String card = value + " of " + suit;
+         String card = Character.toUpperCase(value) + " of " + suit;
       return card;
       }
     } 
@@ -267,20 +267,28 @@ class Hand
    
    public String toString()
    {
-      StringBuilder sb = new StringBuilder("Hand = ( ");
+
+      int cardCounter = 0;
+      StringBuilder hand = new StringBuilder("Hand = ( ");
+
       if (this.numCards > 0)
-         {
+      {
          for (Card card:myCards)
+         {
+            hand.append(card.toString() + ", ");
+            cardCounter++;
+            
+            //if statement below formats the output onto multiple lines
+            if (cardCounter % 5 == 0)
             {
-            sb.append(card.toString() + ", ");
-            //sb.append(card.getValue() + "of" + card.getSuit());
-            //I think the above is a little easier.  I'm not sure
-            //how to best limit.  Could do a counter and if counter % 5 = 0
-            //then insert a /n character maybe?
+               hand.append("\n");
+               cardCounter = 0;
             }
          }
-      sb.append(" )");
-      return sb.toString();
+      }
+      
+      hand.append(" )");
+      return hand.toString();
    }
    
    public int getNumCards()
