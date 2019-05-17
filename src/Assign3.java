@@ -10,6 +10,7 @@ public class Assign3
 
    public static void main(String[] args)
    {
+      /*
       //testing Card class
       //generate some cards, good and bad
       Card card1 = new Card(); //tests default
@@ -86,6 +87,16 @@ public class Assign3
       
       //display now empty Hand
       System.out.println(hand1.toString());
+*/
+      Deck deck = new Deck();
+      int i = 0;
+      while (deck.getTopCard() >= 0)
+      {  
+         System.out.println(deck.dealCard().toString());          //test that deck is filled properly
+         ++i;
+      }
+      System.out.println(i +" cards");
+      System.out.println(deck.inspectCard(0));              //test inspectCard after all cards dealt
    }
 
 }
@@ -323,15 +334,22 @@ class Deck
    {
       allocateMasterPack();
       cards = new Card[52];
+      init(1);
    }
 
    public Deck(int numPacks)
    {
       allocateMasterPack();
       if (numPacks >= 6)
+      {
          cards = new Card[6];
+         init(6);
+      }
       else
+      {
          cards = new Card[numPacks * 52];
+         init(numPacks);
+      }
    }
 
    public void init(int numPacks)
@@ -343,11 +361,12 @@ class Deck
       }
       topCard = (numPacks * 52) - 1;
    }
-
+/*
    public void shuffle()
    {
 
    }
+   */
 /*
 returns a card while topCard is not negative, otherwise return null
 */
@@ -362,10 +381,17 @@ returns a card while topCard is not negative, otherwise return null
    {
       return topCard;
    }
-
+/**
+ * 
+ * @param k
+ * @return a card with errorFlag = true if k is out of bounds
+ * return card otherwise.
+ */
    public Card inspectCard(int k)
    {
-
+      if (k <= topCard)
+         return cards[k];
+      return new Card('X', Card.Suit.clubs);
    }
 
    private static void allocateMasterPack()
