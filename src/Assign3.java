@@ -262,12 +262,16 @@ class Deck
    {
       char[] value = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
      '3', '2'};
-      for (char val: value)
+      for (int i = 0, j=0; i < value.length;i++)
       {
-         masterPack.append(Card(val, Card.Suit.clubs));
-         masterPack.append(Card(val, Card.Suit.spades));
-         masterPack.append(Card(val, Card.Suit.hearts));
-         masterPack.append(Card(val, Card.Suit.diamonds));
+         Card card1 = new Card(value[i], Card.Suit.clubs);
+         masterPack[j++] = card1;
+         Card card2 = new Card(value[i], Card.Suit.spades);
+         masterPack[j++] = card2;
+         Card card3 = new Card(value[i], Card.Suit.hearts);
+         masterPack[j++] = card3;
+         Card card4 = new Card(value[i], Card.Suit.diamonds);
+         masterPack[j++] = card4;
       }
    }
 }
