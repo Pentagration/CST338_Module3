@@ -88,15 +88,22 @@ public class Assign3
       //display now empty Hand
       System.out.println(hand1.toString());
 */
-      Deck deck = new Deck();
+      Deck deck = new Deck(2);
       int i = 0;
       while (deck.getTopCard() >= 0)
       {  
          System.out.println(deck.dealCard().toString());          //test that deck is filled properly
          ++i;
       }
+      deck.init(1);
       System.out.println(i +" cards");
-      System.out.println(deck.inspectCard(0));              //test inspectCard after all cards dealt
+      i = 0;
+      while (deck.getTopCard() >= 0)
+      {  
+         System.out.println(deck.dealCard().toString());          //test that deck is filled properly
+         ++i;
+      }
+      System.out.println(i +" cards");
    }
 
 }
@@ -340,26 +347,22 @@ class Deck
    public Deck(int numPacks)
    {
       allocateMasterPack();
-      if (numPacks >= 6)
-      {
-         cards = new Card[6];
-         init(6);
-      }
-      else
-      {
-         cards = new Card[numPacks * 52];
-         init(numPacks);
-      }
+      cards = new Card[numPacks * 52];
+      init(numPacks);
    }
 
    public void init(int numPacks)
    {
+      cards = new Card[numPacks * 52];
       for (int i = 0; i < numPacks; i++)
       {
          System.arraycopy(masterPack, 0, this.cards, i * masterPack.length,
             masterPack.length);
       }
-      topCard = (numPacks * 52) - 1;
+      if ((numPacks * 52) > MAX_CARDS)
+         topCard = MAX_CARDS - 1;
+      else
+         topCard = (numPacks * 52) - 1;
    }
 /*
    public void shuffle()
@@ -373,7 +376,7 @@ returns a card while topCard is not negative, otherwise return null
    public Card dealCard()
    {
       if (topCard != -1)                        //since a card is stored at 0, deck is empty at -1
-         return masterPack[topCard--];
+         return cards[topCard--];
       return null;
    }
 
