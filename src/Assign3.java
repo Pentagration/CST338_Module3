@@ -219,6 +219,9 @@ class Card
       clubs, diamonds, hearts, spades;
    }
    
+   public static final char cValue[] = {'K', 'Q', 'J', 'T', '9', '8', '7', '6',
+         '5', '4', '3', '2', 'A'};
+   
    private char value;
    private Suit suit;
    private boolean errorFlag;
@@ -310,7 +313,8 @@ class Card
       
       boolean isValid = false;
       
-      for (char index : validValues)
+      //for (char index : validValues)
+      for (char index : cValue)
       {
          if (Character.toUpperCase(value) == index)
          {
@@ -360,6 +364,7 @@ class Hand
    public void resetHand()
    {
       this.numCards = 0;
+      this.myCards = null;
    }
    
    public boolean takeCard(Card card)
@@ -417,7 +422,7 @@ class Hand
    }
    
    public Card inspectCard(int k)
-   //shoud we add a check to see if the int k is out of bounds of the array
+   //should we add a check to see if the int k is out of bounds of the array
    //before going into the check below?
    {
       if (this.myCards[k] != null)
@@ -513,18 +518,16 @@ returns a card while topCard is not negative, otherwise return null
       
       if (masterPack[0] != null)
          return;
+      
       char[] value = {'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
       '3', '2', 'A'};
+      
       for (int i = 0; i < Card.Suit.values().length; i++)
       {
-         for (int j = 0; j < value.length; j++)
+         for (int j = 0; j < Card.cValue.length; j++)
          {
-            masterPack[k++] = new Card(value[j], Card.Suit.values()[i]);
+            masterPack[k++] = new Card(Card.cValue[j], Card.Suit.values()[i]);
          }
-         /*masterPack[j++] = new Card(value[i], Card.Suit.clubs);
-         masterPack[j++] = new Card(value[i], Card.Suit.spades);
-         masterPack[j++] = new Card(value[i], Card.Suit.hearts);
-         masterPack[j++] = new Card(value[i], Card.Suit.diamonds);*/
       }
    }
 }
