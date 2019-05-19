@@ -118,76 +118,62 @@ public class Assign3
       //test Deck class with two decks
       System.out.println("Display two decks, unshuffled:");
       Deck deck = new Deck(2);
-      int i = 0;
-      int cardCounter = 0;
-      while (deck.getTopCard() >= 0)
-      {  
+      for (int i = deck.getTopCard(), cardCount = 0; i >= 0;i--, cardCount++)
+      {
          System.out.print(deck.dealCard().toString() + " / ");
-         i++;
-         cardCounter++;
-         if (cardCounter == 5)
+         if (cardCount == 5)
          {
             System.out.print("\n");
-            cardCounter = 0;
+            cardCount = 0;
          }
       }
-      System.out.println("\n" + i +" cards" + "\n"); 
+      System.out.println("\n");
+      
       
       //test Deck class with one deck
       System.out.println("Display one deck, unshuffled:");
       deck.init(1);
-      i = 0;
-      cardCounter = 0;
-      while (deck.getTopCard() >= 0)
-      {  
-         System.out.print(deck.dealCard().toString() + " / ");     
-         i++;
-         cardCounter++;
-         if (cardCounter == 5)
+      for (int i = deck.getTopCard(), cardCount = 0; i >= 0;i--, cardCount++)
+      {
+         System.out.print(deck.dealCard().toString() + " / ");
+         if (cardCount == 5)
          {
             System.out.print("\n");
-            cardCounter = 0;
+            cardCount = 0;
          }
       }
-      System.out.println("\n" + i +" cards" + "\n");
+      System.out.println("\n");
       
       //test Deck class with two decks shuffled
       System.out.println("Display two decks, shuffled:");
       deck.init(2);
       deck.shuffle();
-      i = 0;
-      cardCounter = 0;
-      while (deck.getTopCard() >= 0)
-      {  
+      for (int i = deck.getTopCard(), cardCount = 0; i >= 0;i--, cardCount++)
+      {
          System.out.print(deck.dealCard().toString() + " / ");
-         i++;
-         cardCounter++;
-         if (cardCounter == 5)
+         if (cardCount == 5)
          {
             System.out.print("\n");
-            cardCounter = 0;
+            cardCount = 0;
          }
       }
-      System.out.println("\n" + i +" cards" + "\n"); 
+      System.out.println("\n");
+      
 
       //test Deck class with one deck shuffled
       System.out.println("Display one deck, shuffled:");
       deck.init(1);
       deck.shuffle();
-      i = 0;
-      cardCounter = 0;
-      while (deck.getTopCard() >= 0)
-      {  
+      for (int i = deck.getTopCard(), cardCount = 0; i >= 0;i--, cardCount++)
+      {
          System.out.print(deck.dealCard().toString() + " / ");
-         i++;
-         cardCounter++;
-         if (cardCounter == 5)
+         if (cardCount == 5)
          {
             System.out.print("\n");
-            cardCounter = 0;
+            cardCount = 0;
          }
       }
-      System.out.println("\n" + i +" cards" + "\n");
+      System.out.println("\n");
       //END TESTS***************************************************************
       
       //PHASE 4: Implement a clean, short and completely tested client
