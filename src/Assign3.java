@@ -366,7 +366,8 @@ class Hand
    {
       boolean newCard = false;
       
-      if (numCards + 1 <= MAX_CARDS)
+      //checking if hand size plus card drawn will put us over max size
+      if (numCards + 1 <= MAX_CARDS) 
       {
          myCards[numCards] = new Card(card.getValue(), card.getSuit());
          this.numCards++;
@@ -508,16 +509,22 @@ returns a card while topCard is not negative, otherwise return null
 
    private static void allocateMasterPack()
    {
+      int k = 0; //for deck array number
+      
       if (masterPack[0] != null)
          return;
-      char[] value = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
-      '3', '2'};
-      for (int i = 0, j=0; i < value.length;i++)
+      char[] value = {'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
+      '3', '2', 'A'};
+      for (int i = 0; i < Card.Suit.values().length; i++)
       {
-         masterPack[j++] = new Card(value[i], Card.Suit.clubs);
+         for (int j = 0; j < value.length; j++)
+         {
+            masterPack[k++] = new Card(value[j], Card.Suit.values()[i]);
+         }
+         /*masterPack[j++] = new Card(value[i], Card.Suit.clubs);
          masterPack[j++] = new Card(value[i], Card.Suit.spades);
          masterPack[j++] = new Card(value[i], Card.Suit.hearts);
-         masterPack[j++] = new Card(value[i], Card.Suit.diamonds);
+         masterPack[j++] = new Card(value[i], Card.Suit.diamonds);*/
       }
    }
 }
