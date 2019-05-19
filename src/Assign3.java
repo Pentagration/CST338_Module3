@@ -123,16 +123,16 @@ public class Assign3
             cardCounter = 0;
          }
       }
-      System.out.println("\n" + i +" cards"); //show how many cards were dealt
+      System.out.println("\n" + i +" cards" + "\n"); 
       
       //test Deck class with one deck
-      System.out.println("Display on deck, unshuffled:");
+      System.out.println("Display one deck, unshuffled:");
       deck.init(1);
       i = 0;
       cardCounter = 0;
       while (deck.getTopCard() >= 0)
       {  
-         System.out.println(deck.dealCard().toString() + " / ");          //test that deck is filled properly
+         System.out.print(deck.dealCard().toString() + " / ");     
          i++;
          cardCounter++;
          if (cardCounter == 5)
@@ -141,9 +141,46 @@ public class Assign3
             cardCounter = 0;
          }
       }
-      System.out.println("\n" + i +" cards");
+      System.out.println("\n" + i +" cards" + "\n");
       
-     deck.shuffle();
+      //test Deck class with two decks shuffled
+      System.out.println("Display two decks, shuffled:");
+      deck.init(2);
+      deck.shuffle();
+      i = 0;
+      cardCounter = 0;
+      while (deck.getTopCard() >= 0)
+      {  
+         System.out.print(deck.dealCard().toString() + " / ");
+         i++;
+         cardCounter++;
+         if (cardCounter == 5)
+         {
+            System.out.print("\n");
+            cardCounter = 0;
+         }
+      }
+      System.out.println("\n" + i +" cards" + "\n"); 
+
+      //test Deck class with one deck shuffled
+      System.out.println("Display one deck, shuffled:");
+      deck.init(1);
+      deck.shuffle();
+      i = 0;
+      cardCounter = 0;
+      while (deck.getTopCard() >= 0)
+      {  
+         System.out.print(deck.dealCard().toString() + " / ");
+         i++;
+         cardCounter++;
+         if (cardCounter == 5)
+         {
+            System.out.print("\n");
+            cardCounter = 0;
+         }
+      }
+      System.out.println("\n" + i +" cards" + "\n");
+     
    }
 
 }
@@ -415,7 +452,6 @@ class Deck
          Card swap = cards[randomIndex];
          cards[randomIndex] = cards[i];
          cards[i] = swap;
-         System.out.println(cards[i]);
       }
    }
    
