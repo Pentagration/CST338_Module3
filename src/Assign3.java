@@ -18,7 +18,7 @@ public class Assign3
       //START TESTS************************************************************
       //INSTRUCTIONS SAY ONLY TURN IN OUTPUT FROM PHASE 3 AND 4
       //COMMENTING OUT PHASE 1 AND 2 TESTS
-      
+      /*
       //PHASE 1: testing Card class
       //generate some cards, good and bad
       System.out.println("Create default A-spades, 3-hearts, and n-diamonds:");
@@ -112,7 +112,7 @@ public class Assign3
       System.out.println("Test hand.inspectCard() with illegal argument:");
       System.out.println(hand1.inspectCard(1).toString());
       System.out.println(); //blank line
-      
+      */
       
       //PHASE 3: test Deck class 
       //test Deck class with two decks
@@ -411,6 +411,10 @@ class Hand
       {
          for (Card card:myCards)
          {
+            if (card == null) 
+            {
+               break;
+            }
             hand.append(card.toString() + ", ");
             cardCounter++;
             
