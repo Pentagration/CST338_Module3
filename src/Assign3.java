@@ -443,14 +443,12 @@ class Deck
    public Deck()
    {
       allocateMasterPack();
-      cards = new Card[52];
       init(1);
    }
 
    public Deck(int numPacks)
    {
       allocateMasterPack();
-      cards = new Card[numPacks * 52];
       init(numPacks);
    }
 
