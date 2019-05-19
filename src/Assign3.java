@@ -18,7 +18,7 @@ public class Assign3
       //START TESTS************************************************************
       //INSTRUCTIONS SAY ONLY TURN IN OUTPUT FROM PHASE 3 AND 4
       //COMMENTING OUT PHASE 1 AND 2 TESTS
-      /*
+      
       //PHASE 1: testing Card class
       //generate some cards, good and bad
       System.out.println("Create default A-spades, 3-hearts, and n-diamonds:");
@@ -112,7 +112,7 @@ public class Assign3
       System.out.println("Test hand.inspectCard() with illegal argument:");
       System.out.println(hand1.inspectCard(1).toString());
       System.out.println(); //blank line
-      */
+      
       
       //PHASE 3: test Deck class 
       //test Deck class with two decks
@@ -197,7 +197,7 @@ public class Assign3
       int MIN_PLAYERS = 1;
       int MAX_PLAYERS = 10;
       int numPlayers = 0;
-
+      
       do
       {
          System.out.print("How many player (1-10)? ");
@@ -205,8 +205,36 @@ public class Assign3
       }
       while(numPlayers < MIN_PLAYERS || numPlayers > MAX_PLAYERS);
       
+      //instantiate a single-pack Deck
+      Deck cardDeck = new Deck();
       
+      //create Hands based on user input
+      Hand[] playerHands = new Hand[numPlayers];
       
+      for (int h = 0; h < numPlayers; h++)
+      {
+         playerHands[h] = new Hand();
+      }
+      
+      //deal cards out to each hand use Hand.takeCard(Deck.dealCard())
+      int k = 0; //counter
+      while (cardDeck.topCard != -1)
+      {
+         playerHands[k].takeCard(cardDeck.dealCard());
+         k++;
+         
+         //set counter back to 0 to keep looping through hands
+         if (k == numPlayers)
+         {
+            k = 0;
+         }
+      }
+      
+      //display all hands
+      for (int l = 0; l < playerHands.length; l++)
+      {
+         System.out.println(playerHands[l].toString());
+      }
    }
 
 }
@@ -308,9 +336,6 @@ class Card
    
    private boolean isValid(char value, Suit suit)
    {
-      char[] validValues = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', 
-                             '5', '4', '3', '2'};
-      
       boolean isValid = false;
       
       //for (char index : validValues)
@@ -518,9 +543,6 @@ returns a card while topCard is not negative, otherwise return null
       
       if (masterPack[0] != null)
          return;
-      
-      char[] value = {'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
-      '3', '2', 'A'};
       
       for (int i = 0; i < Card.Suit.values().length; i++)
       {
