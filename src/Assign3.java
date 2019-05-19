@@ -5,14 +5,17 @@
  * EXERCISE: Module 3 Deck of Cards
  */
 
+import java.util.Random;
+
 public class Assign3
 {
 
    public static void main(String[] args)
    {
-      /*
+      
       //testing Card class
       //generate some cards, good and bad
+      System.out.println("Create default A-spades, 3-hearts, and n-diamonds:");
       Card card1 = new Card(); //tests default
       Card card2 = new Card('3', Card.Suit.hearts); //tests other constructor
       Card card3 = new Card('n', Card.Suit.diamonds); //tests invalid
@@ -21,19 +24,24 @@ public class Assign3
       System.out.println(card1.toString());
       System.out.println(card2.toString());
       System.out.println(card3.toString());
+      System.out.println(); //blank line
       
       //change cards
       card1.set('P', Card.Suit.spades);
       card3.set('J',  Card.Suit.clubs);
       
       //print out cards
+      System.out.println("Use card.set to change cards P-spades and J-clubs:");
       System.out.println(card1.toString());
       System.out.println(card2.toString());
       System.out.println(card3.toString());
+      System.out.println(); //blank line
 
       //test equals
+      System.out.println("Test card.equals card1 = card1 and card1 = card2:");
       System.out.println(card1.equals(card1));
       System.out.println(card1.equals(card2));
+      System.out.println(); //blank line
       
       //testing Hand class
       //create Cards and one Hand
@@ -47,7 +55,7 @@ public class Assign3
       //use a loop to populate Hand with Cards
       for (int i = 0; i < Hand.MAX_CARDS; i++)
       {
-         if (i % 5 == 0) 
+         if (i % 5 == 0) //%5 is for formatting the output
          {
             hand1.takeCard(hCard5);
          }
@@ -70,40 +78,72 @@ public class Assign3
       }
       
       //display hand using toString()
+      System.out.println("Display the hand:");
       System.out.println(hand1.toString());
+      System.out.println(); //blank line;
+
       
       //test inspectCard good
+      System.out.println("Test hand.inspectCard(1):");
       System.out.println(hand1.inspectCard(1).toString());
+      System.out.println(); //blank line
+      
       
       //play each card from Hand using a loop and display
+      System.out.println("Test hand.playCard():");
       while (hand1.getNumCards() > 0)
       {
          System.out.println("Playing " + hand1.playCard().toString());
       }
+      System.out.println(); //blank line
+
+      //display now empty Hand
+      System.out.println("Display the empty hand:");
+      System.out.println(hand1.toString());
+      System.out.println();
       
       //test inspectCard bad
-
+      System.out.println("Test hand.inspectCard() with illegal argument:");
       System.out.println(hand1.inspectCard(1).toString());
+      System.out.println(); //blank line
       
-      //display now empty Hand
-      System.out.println(hand1.toString());
-*/
+      //test Deck class with two decks
+      System.out.println("Display two decks, unshuffled:");
       Deck deck = new Deck(2);
       int i = 0;
+      int cardCounter = 0;
       while (deck.getTopCard() >= 0)
       {  
-         System.out.println(deck.dealCard().toString());          //test that deck is filled properly
-         ++i;
+         System.out.print(deck.dealCard().toString() + " / ");
+         i++;
+         cardCounter++;
+         if (cardCounter == 5)
+         {
+            System.out.print("\n");
+            cardCounter = 0;
+         }
       }
+      System.out.println("\n" + i +" cards"); //show how many cards were dealt
+      
+      //test Deck class with one deck
+      System.out.println("Display on deck, unshuffled:");
       deck.init(1);
-      System.out.println(i +" cards");
       i = 0;
+      cardCounter = 0;
       while (deck.getTopCard() >= 0)
       {  
-         System.out.println(deck.dealCard().toString());          //test that deck is filled properly
-         ++i;
+         System.out.println(deck.dealCard().toString() + " / ");          //test that deck is filled properly
+         i++;
+         cardCounter++;
+         if (cardCounter == 5)
+         {
+            System.out.print("\n");
+            cardCounter = 0;
+         }
       }
-      System.out.println(i +" cards");
+      System.out.println("\n" + i +" cards");
+      
+     deck.shuffle();
    }
 
 }
@@ -364,12 +404,21 @@ class Deck
       else
          topCard = (numPacks * 52) - 1;
    }
-/*
-   public void shuffle()
+   
+   public void shuffle() 
    {
-
+      Random shuffle = new Random();
+      
+      for (int i=0; i < cards.length; i++) 
+      {
+         int randomIndex = i + shuffle.nextInt(cards.length - i);
+         Card swap = cards[randomIndex];
+         cards[randomIndex] = cards[i];
+         cards[i] = swap;
+         System.out.println(cards[i]);
+      }
    }
-   */
+   
 /*
 returns a card while topCard is not negative, otherwise return null
 */
