@@ -217,6 +217,40 @@ public class Assign3
       }
       
       //display all hands
+      System.out.println("Here are the hands from an unshuffled deck: ");
+      for (int l = 0; l < playerHands.length; l++)
+      {
+         System.out.println(playerHands[l].toString());
+      }
+      System.out.println(""); //for space
+      
+      //reset all hands and deck
+      for (int m = 0; m < playerHands.length; m++)
+      {
+         playerHands[m].resetHand();
+      }
+      cardDeck.init(1);
+      
+      //shuffle the deck
+      cardDeck.shuffle();
+      
+      //deal cards to same number of players
+      k = 0; //counter
+      while (cardDeck.topCard != -1)
+      {
+         playerHands[k].takeCard(cardDeck.dealCard());
+         k++;
+         
+         //set counter back to 0 to keep looping through hands
+         if (k == numPlayers)
+         {
+            k = 0;
+         }
+      }
+      
+      //display all hands
+      System.out.println("Here are the hands from a shuffled deck: ");
+      
       for (int l = 0; l < playerHands.length; l++)
       {
          System.out.println(playerHands[l].toString());
@@ -375,7 +409,7 @@ class Hand
    public void resetHand()
    {
       this.numCards = 0;
-      this.myCards = null;
+      //this.myCards = null;
    }
    
    public boolean takeCard(Card card)
@@ -405,6 +439,7 @@ class Hand
    {
 
       int cardCounter = 0;
+      int handCards = 0;
       StringBuilder hand = new StringBuilder("Hand = ( ");
 
       if (this.numCards > 0)
@@ -415,11 +450,16 @@ class Hand
             {
                break;
             }
-            hand.append(card.toString() + ", ");
+            hand.append(card.toString());
+            if(handCards < this.numCards - 1) 
+            {
+               hand.append(", ");
+            }
             cardCounter++;
+            handCards++;
             
             //if statement below formats the output onto multiple lines
-            if (cardCounter % 5 == 0)
+            if (cardCounter % 5 == 0 && handCards != this.numCards)
             {
                hand.append("\n");
                cardCounter = 0;
