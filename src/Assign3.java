@@ -6,14 +6,20 @@
  */
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Assign3
 {
 
+   static Scanner keyboard = new Scanner(System.in);
+   
    public static void main(String[] args)
    {
-      
-      //testing Card class
+      //START TESTS************************************************************
+      //INSTRUCTIONS SAY ONLY TURN IN OUTPUT FROM PHASE 3 AND 4
+      //COMMENTING OUT PHASE 1 AND 2 TESTS
+      /*
+      //PHASE 1: testing Card class
       //generate some cards, good and bad
       System.out.println("Create default A-spades, 3-hearts, and n-diamonds:");
       Card card1 = new Card(); //tests default
@@ -43,7 +49,7 @@ public class Assign3
       System.out.println(card1.equals(card2));
       System.out.println(); //blank line
       
-      //testing Hand class
+      //PHASE 2: testing Hand class
       //create Cards and one Hand
       Card hCard1 = new Card();
       Card hCard2 = new Card('a', Card.Suit.clubs);
@@ -106,7 +112,9 @@ public class Assign3
       System.out.println("Test hand.inspectCard() with illegal argument:");
       System.out.println(hand1.inspectCard(1).toString());
       System.out.println(); //blank line
+      */
       
+      //PHASE 3: test Deck class 
       //test Deck class with two decks
       System.out.println("Display two decks, unshuffled:");
       Deck deck = new Deck(2);
@@ -180,7 +188,25 @@ public class Assign3
          }
       }
       System.out.println("\n" + i +" cards" + "\n");
-     
+      //END TESTS***************************************************************
+      
+      //PHASE 4: Implement a clean, short and completely tested client
+      
+      System.out.println("Welcome to our card game!");
+
+      int MIN_PLAYERS = 1;
+      int MAX_PLAYERS = 10;
+      int numPlayers = 0;
+
+      do
+      {
+         System.out.print("How many player (1-10)? ");
+         numPlayers = keyboard.nextInt();
+      }
+      while(numPlayers < MIN_PLAYERS || numPlayers > MAX_PLAYERS);
+      
+      
+      
    }
 
 }
@@ -460,7 +486,7 @@ returns a card while topCard is not negative, otherwise return null
 */
    public Card dealCard()
    {
-      if (topCard != -1)                        //since a card is stored at 0, deck is empty at -1
+      if (topCard != -1) //since a card is stored at 0, deck is empty at -1
          return cards[topCard--];
       return null;
    }
