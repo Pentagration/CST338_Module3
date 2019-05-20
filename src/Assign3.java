@@ -277,7 +277,7 @@ class Card
    private Suit suit;
    private boolean errorFlag;
    
-   /**
+   /*
     * There is a default Card constructor Card() that sets the card to
     * 'A', Suit.spades.  
     * 
@@ -513,14 +513,18 @@ class Hand
    }
    
    /**
-    * 
-    * @return
+    * Getter getNumCards returns the number of cards currently in the hand
+    * @return number of cards
     */
    public int getNumCards()
    {
       return this.numCards;
    }
    
+   /**
+   * inspectCard accesses individual card (k).
+   * @return card
+   */
    public Card inspectCard(int k)
    //should we add a check to see if the int k is out of bounds of the array
    //before going into the check below?
@@ -539,6 +543,9 @@ class Hand
 //END class Hand
 
 //START class Deck
+/**
+*Deck class holds all available cards for disturbution to hands.
+*/
 class Deck
 {
    public static final int MAX_CARDS = 6 * 52;
@@ -547,18 +554,30 @@ class Deck
    Card[] cards;
    int topCard;
 
+   /**
+   * Default Constructor 
+   * Allocates Master pack and initializes one deck. 
+   */
    public Deck()
    {
       allocateMasterPack();
       init(1);
    }
 
+   /**
+   * Secondary Constructor
+   * Initializes set number of decks
+   */
    public Deck(int numPacks)
    {
       allocateMasterPack();
       init(numPacks);
    }
 
+   /**
+   * init member function 
+   * Initializes deck with correct number of instanciated cards. 
+   */
    public void init(int numPacks)
    {
       cards = new Card[numPacks * 52];
@@ -572,7 +591,10 @@ class Deck
       else
          topCard = (numPacks * 52) - 1;
    }
-   
+   /**
+   * shuffle method 
+   * randomizes indices of existing cards in deck
+   */
    public void shuffle() 
    {
       Random shuffle = new Random();
@@ -586,9 +608,9 @@ class Deck
       }
    }
    
-/*
-returns a card while topCard is not negative, otherwise return null
-*/
+   /**
+   * dealCard returns a card while topCard is not negative, otherwise return null
+   */
    public Card dealCard()
    {
       if (topCard != -1) //since a card is stored at 0, deck is empty at -1
@@ -596,16 +618,19 @@ returns a card while topCard is not negative, otherwise return null
       return null;
    }
 
+   /**
+   * getTopCard returns topCard integer
+   */
    public int getTopCard()
    {
       return topCard;
    }
-/**
- * 
- * @param k
- * @return a card with errorFlag = true if k is out of bounds
- * return card otherwise.
- */
+   /**
+   * method inspectCard
+   * @param k
+   * @return a card with errorFlag = true if k is out of bounds
+   * return card otherwise.
+   */
    public Card inspectCard(int k)
    {
       if (k <= topCard)
@@ -613,6 +638,9 @@ returns a card while topCard is not negative, otherwise return null
       return new Card('X', Card.Suit.clubs);
    }
 
+   /**
+   * allocateMasterPack generates proper card values for the pack
+   */
    private static void allocateMasterPack()
    {
       int k = 0; //for deck array number
