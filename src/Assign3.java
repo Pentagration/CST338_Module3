@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class Assign3
 {
-
    static Scanner keyboard = new Scanner(System.in);
    
    public static void main(String[] args)
@@ -30,7 +29,7 @@ public class Assign3
       System.out.println(card1.toString());
       System.out.println(card2.toString());
       System.out.println(card3.toString());
-      System.out.println(); //blank line
+      System.out.println(); //blank line for output formatting
       
       //change cards
       card1.set('P', Card.Suit.spades);
@@ -41,13 +40,13 @@ public class Assign3
       System.out.println(card1.toString());
       System.out.println(card2.toString());
       System.out.println(card3.toString());
-      System.out.println(); //blank line
+      System.out.println(); //blank line for output formatting
 
       //test equals
       System.out.println("Test card.equals card1 = card1 and card1 = card2:");
       System.out.println(card1.equals(card1));
       System.out.println(card1.equals(card2));
-      System.out.println(); //blank line
+      System.out.println(); //blank line for output formatting
       
       //PHASE 2: testing Hand class
       //create Cards and one Hand
@@ -86,39 +85,37 @@ public class Assign3
       //display hand using toString()
       System.out.println("Display the hand:");
       System.out.println(hand1.toString());
-      System.out.println(); //blank line;
-
-      
+      System.out.println(); //blank line for output formatting;
+     
       //test inspectCard good
       System.out.println("Test hand.inspectCard(1):");
       System.out.println(hand1.inspectCard(1).toString());
-      System.out.println(); //blank line
-      
-      
+      System.out.println(); //blank line for output formatting
+            
       //play each card from Hand using a loop and display
       System.out.println("Test hand.playCard():");
       while (hand1.getNumCards() > 0)
       {
          System.out.println("Playing " + hand1.playCard().toString());
       }
-      System.out.println(); //blank line
+      System.out.println(); //blank line for output formatting
 
       //display now empty Hand
       System.out.println("Display the empty hand:");
       System.out.println(hand1.toString());
-      System.out.println();
+      System.out.println(); //blank line for output formatting
       
       //test inspectCard bad
       System.out.println("Test hand.inspectCard() with illegal argument:");
       System.out.println(hand1.inspectCard(1).toString());
-      System.out.println(); //blank line
+      System.out.println(); //blank line for output formatting
       */
       
       //PHASE 3: test Deck class 
       //test Deck class with two decks
       System.out.println("Display two decks, unshuffled:");
       Deck deck = new Deck(2);
-      for (int i = deck.getTopCard(), cardCount = 0; i >= 0;i--, cardCount++)
+      for (int i = deck.getTopCard(), cardCount = 0; i >= 0; i--, cardCount++)
       {
          System.out.print(deck.dealCard().toString() + " / ");
          if (cardCount == 5)
@@ -129,11 +126,10 @@ public class Assign3
       }
       System.out.println("\n");
       
-      
       //test Deck class with one deck
       System.out.println("Display one deck, unshuffled:");
       deck.init(1);
-      for (int i = deck.getTopCard(), cardCount = 0; i >= 0;i--, cardCount++)
+      for (int i = deck.getTopCard(), cardCount = 0; i >= 0; i--, cardCount++)
       {
          System.out.print(deck.dealCard().toString() + " / ");
          if (cardCount == 5)
@@ -148,7 +144,7 @@ public class Assign3
       System.out.println("Display two decks, shuffled:");
       deck.init(2);
       deck.shuffle();
-      for (int i = deck.getTopCard(), cardCount = 0; i >= 0;i--, cardCount++)
+      for (int i = deck.getTopCard(), cardCount = 0; i >= 0; i--, cardCount++)
       {
          System.out.print(deck.dealCard().toString() + " / ");
          if (cardCount == 5)
@@ -159,12 +155,11 @@ public class Assign3
       }
       System.out.println("\n");
       
-
       //test Deck class with one deck shuffled
       System.out.println("Display one deck, shuffled:");
       deck.init(1);
       deck.shuffle();
-      for (int i = deck.getTopCard(), cardCount = 0; i >= 0;i--, cardCount++)
+      for (int i = deck.getTopCard(), cardCount = 0; i >= 0; i--, cardCount++)
       {
          System.out.print(deck.dealCard().toString() + " / ");
          if (cardCount == 5)
@@ -176,8 +171,7 @@ public class Assign3
       System.out.println("\n");
       //END TESTS***************************************************************
       
-      //PHASE 4: Implement a clean, short and completely tested client
-      
+      //PHASE 4: Implement a clean, short and completely tested client      
       System.out.println("Welcome to our card game!");
 
       int MIN_PLAYERS = 1;
@@ -256,7 +250,6 @@ public class Assign3
          System.out.println(playerHands[l].toString());
       }
    }
-
 }
 
 //START class Card
@@ -280,11 +273,9 @@ class Card
     */
    public static final char cValue[] = {'K', 'Q', 'J', 'T', '9', '8', '7', '6',
          '5', '4', '3', '2', 'A'};
-   
    private char value;
    private Suit suit;
    private boolean errorFlag;
-   
    
    /**
     * There is a default Card constructor Card() that sets the card to
@@ -336,13 +327,13 @@ class Card
       return this.errorFlag;
    }
    //END mutators
-   
+
+   //START accessors
    /**
     * There are three accessors in the Card class getSuit(), getValue(), and 
     * getErrorFlag().
     * @return this.suit, this.value, or this.errorFlag
     */
-   //START accessors
    public Suit getSuit()
    {
       return this.suit;
@@ -464,8 +455,7 @@ class Hand
          myCards[numCards] = new Card(card.getValue(), card.getSuit());
          this.numCards++;
          newCard = true;
-      }
-      
+      }     
       return newCard;
    }
    
@@ -490,7 +480,6 @@ class Hand
     */
    public String toString()
    {
-
       int cardCounter = 0;
       int handCards = 0;
       StringBuilder hand = new StringBuilder("Hand = (");
@@ -518,8 +507,7 @@ class Hand
                cardCounter = 0;
             }
          }
-      }
-      
+      }      
       hand.append(")\n");
       return hand.toString();
    }
@@ -554,6 +542,7 @@ class Hand
 class Deck
 {
    public static final int MAX_CARDS = 6 * 52;
+   
    private static Card[] masterPack = new Card[52];
    Card[] cards;
    int topCard;
