@@ -445,7 +445,6 @@ class Hand
    public void resetHand()
    {
       this.numCards = 0;
-      this.myCards = null;
    }
    
    /**
@@ -521,7 +520,7 @@ class Hand
          }
       }
       
-      hand.append(" )");
+      hand.append(" )\n");
       return hand.toString();
    }
    
