@@ -493,7 +493,7 @@ class Hand
 
       int cardCounter = 0;
       int handCards = 0;
-      StringBuilder hand = new StringBuilder("Hand = ( ");
+      StringBuilder hand = new StringBuilder("Hand = (");
 
       if (this.numCards > 0)
       {
@@ -520,7 +520,7 @@ class Hand
          }
       }
       
-      hand.append(" )\n");
+      hand.append(")\n");
       return hand.toString();
    }
    
