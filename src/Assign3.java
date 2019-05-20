@@ -260,13 +260,24 @@ public class Assign3
 }
 
 //START class Card
+/**
+ * The Card class allows for the representation and manipulation of a single 
+ * playing card as found in a standard 52 card deck.
+ */
 class Card
 {
+   /**
+    * A public enum Suit stores the values of clubs, diamonds, hearts, spades;
+    */
    public enum Suit
    {
       clubs, diamonds, hearts, spades;
    }
    
+   /**
+    * A public static final char cValue[] stores the values of each card 1-9 and 
+    * T-A.  Ten is represented by 'T', not '10'.  
+    */
    public static final char cValue[] = {'K', 'Q', 'J', 'T', '9', '8', '7', '6',
          '5', '4', '3', '2', 'A'};
    
@@ -285,7 +296,7 @@ class Card
     * @param value = 'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4',
     * '3', '2'
     * 
-    * suit = clubs, diamonds, hearts, spades
+    * @param suit = clubs, diamonds, hearts, spades
     */
    
    //Default constructor
@@ -301,6 +312,14 @@ class Card
    }
    
    //START mutators
+   /**
+    * public boolean set(char value, Suit suit) checks that a valid card is being
+    * set.
+    * 
+    * @param value 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'A'
+    * @param suit clubs, diamonds, hearts, spades
+    * @return this.errorflag true = error / bad card value
+    */
    public boolean set(char value, Suit suit)
    {
       if(isValid(value, suit))
@@ -318,12 +337,11 @@ class Card
    }
    //END mutators
    
-   
    /**
     * There are three accessors in the Card class getSuit(), getValue(), and 
     * getErrorFlag().
+    * @return this.suit, this.value, or this.errorFlag
     */
-   
    //START accessors
    public Suit getSuit()
    {
@@ -341,6 +359,13 @@ class Card
    }
    //END accessors
    
+   /**
+    * public boolean equals(Card card) returns true if all the fields are
+    * identical and false otherwise.
+    * 
+    * @param card
+    * @return true or false
+    */
    public boolean equals(Card card)
    {
       boolean isEqual = false;
@@ -392,6 +417,9 @@ class Card
 //END class Card
 
 //START class Hand
+/**
+ * The Hand class represents the cards held by a single player
+ */
 class Hand
 {
    public static final int MAX_CARDS = 52;
@@ -400,18 +428,33 @@ class Hand
    private int numCards;
    
    //Default constructor
+   /**
+    * There is a default Hand() constructor that creates an empty hand.  A hand
+    * can hold no more than 52 cards, and the number of cards in the hand after
+    * construction is 0.
+    */
    public Hand()
    {
       this.myCards = new Card[MAX_CARDS];
       this.numCards = 0;
    }
    
+   /**
+    * public void resetHand() resets an existing hand to 0 cards.
+    */
    public void resetHand()
    {
       this.numCards = 0;
-      //this.myCards = null;
+      this.myCards = null;
    }
    
+   /**
+    * public boolean takeCard(Card card) puts a new card in the players hand
+    * and also checks that taking a new card would not violate the MAX_CARDS
+    * allowed in the hand, which is set to MAX_CARDS = 52 by the Hand constructor.
+    * @param card
+    * @return true or false
+    */
    public boolean takeCard(Card card)
    {
       boolean newCard = false;
@@ -427,6 +470,11 @@ class Hand
       return newCard;
    }
    
+   /**
+    * public Card playCard() returns and removes the card in the top occupied 
+    * position of the hand array.
+    * @return a representation of the top card from the players hand
+    */
    public Card playCard()
    {
       Card play = myCards[numCards-1];
@@ -435,6 +483,12 @@ class Hand
       return play; 
    }
    
+   /**
+    * toString() concatenates the cards in the hand into a single string.
+    * 
+    * @param none
+    * @return Returns a string
+    */
    public String toString()
    {
 
@@ -471,6 +525,10 @@ class Hand
       return hand.toString();
    }
    
+   /**
+    * 
+    * @return
+    */
    public int getNumCards()
    {
       return this.numCards;
