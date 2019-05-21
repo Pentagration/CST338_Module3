@@ -643,3 +643,114 @@ class Deck
       }
    }
 }
+
+/***************************SAMPLE RUN*********************************************
+PHASE 3 and PHASE 4 OUTPUT ONLY:
+
+Display two decks, unshuffled:
+A of spades / 2 of spades / 3 of spades / 4 of spades / 5 of spades / 6 of spades / 
+7 of spades / 8 of spades / 9 of spades / T of spades / J of spades / 
+Q of spades / K of spades / A of hearts / 2 of hearts / 3 of hearts / 
+4 of hearts / 5 of hearts / 6 of hearts / 7 of hearts / 8 of hearts / 
+9 of hearts / T of hearts / J of hearts / Q of hearts / K of hearts / 
+A of diamonds / 2 of diamonds / 3 of diamonds / 4 of diamonds / 5 of diamonds / 
+6 of diamonds / 7 of diamonds / 8 of diamonds / 9 of diamonds / T of diamonds / 
+J of diamonds / Q of diamonds / K of diamonds / A of clubs / 2 of clubs / 
+3 of clubs / 4 of clubs / 5 of clubs / 6 of clubs / 7 of clubs / 
+8 of clubs / 9 of clubs / T of clubs / J of clubs / Q of clubs / 
+K of clubs / A of spades / 2 of spades / 3 of spades / 4 of spades / 
+5 of spades / 6 of spades / 7 of spades / 8 of spades / 9 of spades / 
+T of spades / J of spades / Q of spades / K of spades / A of hearts / 
+2 of hearts / 3 of hearts / 4 of hearts / 5 of hearts / 6 of hearts / 
+7 of hearts / 8 of hearts / 9 of hearts / T of hearts / J of hearts / 
+Q of hearts / K of hearts / A of diamonds / 2 of diamonds / 3 of diamonds / 
+4 of diamonds / 5 of diamonds / 6 of diamonds / 7 of diamonds / 8 of diamonds / 
+9 of diamonds / T of diamonds / J of diamonds / Q of diamonds / K of diamonds / 
+A of clubs / 2 of clubs / 3 of clubs / 4 of clubs / 5 of clubs / 
+6 of clubs / 7 of clubs / 8 of clubs / 9 of clubs / T of clubs / 
+J of clubs / Q of clubs / K of clubs / 
+
+Display one deck, unshuffled:
+A of spades / 2 of spades / 3 of spades / 4 of spades / 5 of spades / 6 of spades / 
+7 of spades / 8 of spades / 9 of spades / T of spades / J of spades / 
+Q of spades / K of spades / A of hearts / 2 of hearts / 3 of hearts / 
+4 of hearts / 5 of hearts / 6 of hearts / 7 of hearts / 8 of hearts / 
+9 of hearts / T of hearts / J of hearts / Q of hearts / K of hearts / 
+A of diamonds / 2 of diamonds / 3 of diamonds / 4 of diamonds / 5 of diamonds / 
+6 of diamonds / 7 of diamonds / 8 of diamonds / 9 of diamonds / T of diamonds / 
+J of diamonds / Q of diamonds / K of diamonds / A of clubs / 2 of clubs / 
+3 of clubs / 4 of clubs / 5 of clubs / 6 of clubs / 7 of clubs / 
+8 of clubs / 9 of clubs / T of clubs / J of clubs / Q of clubs / 
+K of clubs / 
+
+Display two decks, shuffled:
+6 of spades / 7 of spades / T of hearts / 9 of diamonds / T of clubs / 5 of hearts / 
+A of spades / A of hearts / 9 of hearts / T of clubs / 6 of clubs / 
+K of clubs / 8 of hearts / K of hearts / 6 of hearts / 8 of diamonds / 
+4 of diamonds / 5 of diamonds / 2 of clubs / 9 of hearts / 6 of diamonds / 
+9 of diamonds / 4 of diamonds / 5 of clubs / 6 of diamonds / 7 of hearts / 
+6 of hearts / 4 of spades / A of clubs / 5 of hearts / 6 of clubs / 
+Q of diamonds / 7 of diamonds / 2 of hearts / 8 of diamonds / 9 of clubs / 
+3 of spades / 9 of clubs / K of clubs / 4 of hearts / A of diamonds / 
+K of spades / T of hearts / A of diamonds / 5 of clubs / 8 of hearts / 
+3 of spades / 2 of spades / 8 of clubs / 2 of hearts / 7 of spades / 
+7 of hearts / 3 of diamonds / 2 of clubs / 3 of diamonds / 8 of spades / 
+T of spades / J of diamonds / 7 of diamonds / 9 of spades / T of spades / 
+7 of clubs / Q of spades / 5 of diamonds / Q of hearts / J of spades / 
+Q of clubs / K of spades / J of hearts / A of clubs / K of hearts / 
+3 of hearts / K of diamonds / 2 of spades / J of clubs / 5 of spades / 
+J of hearts / Q of diamonds / 3 of hearts / 5 of spades / 3 of clubs / 
+A of spades / T of diamonds / Q of hearts / 8 of clubs / J of clubs / 
+T of diamonds / Q of spades / 6 of spades / 4 of spades / 9 of spades / 
+4 of clubs / K of diamonds / 3 of clubs / J of diamonds / 7 of clubs / 
+4 of hearts / Q of clubs / 8 of spades / 4 of clubs / 2 of diamonds / 
+2 of diamonds / J of spades / A of hearts / 
+
+Display one deck, shuffled:
+K of diamonds / 5 of clubs / 7 of spades / 8 of spades / 4 of hearts / 7 of hearts / 
+T of spades / 3 of diamonds / 9 of diamonds / A of diamonds / 6 of spades / 
+6 of diamonds / 9 of clubs / J of hearts / T of hearts / A of spades / 
+4 of spades / 3 of clubs / A of clubs / 8 of diamonds / 9 of spades / 
+Q of spades / 7 of diamonds / 8 of hearts / Q of diamonds / T of diamonds / 
+3 of hearts / 6 of clubs / 9 of hearts / Q of hearts / 2 of diamonds / 
+J of spades / 4 of diamonds / K of clubs / 8 of clubs / 3 of spades / 
+4 of clubs / 2 of hearts / 2 of clubs / A of hearts / 5 of diamonds / 
+K of hearts / 6 of hearts / K of spades / 2 of spades / 5 of hearts / 
+J of diamonds / 5 of spades / Q of clubs / J of clubs / 7 of clubs / 
+T of clubs / 
+
+Welcome to our card game!
+How many player (1-10)? 3
+Here are the hands from an unshuffled deck: 
+Hand = (A of spades, 4 of spades, 7 of spades, T of spades, K of spades, 
+3 of hearts, 6 of hearts, 9 of hearts, Q of hearts, 2 of diamonds, 
+5 of diamonds, 8 of diamonds, J of diamonds, A of clubs, 4 of clubs, 
+7 of clubs, T of clubs, K of clubs)
+
+Hand = (2 of spades, 5 of spades, 8 of spades, J of spades, A of hearts, 
+4 of hearts, 7 of hearts, T of hearts, K of hearts, 3 of diamonds, 
+6 of diamonds, 9 of diamonds, Q of diamonds, 2 of clubs, 5 of clubs, 
+8 of clubs, J of clubs)
+
+Hand = (3 of spades, 6 of spades, 9 of spades, Q of spades, 2 of hearts, 
+5 of hearts, 8 of hearts, J of hearts, A of diamonds, 4 of diamonds, 
+7 of diamonds, T of diamonds, K of diamonds, 3 of clubs, 6 of clubs, 
+9 of clubs, Q of clubs)
+
+
+Here are the hands from a shuffled deck: 
+Hand = (Q of clubs, J of diamonds, 6 of diamonds, 2 of spades, 4 of spades, 
+9 of clubs, T of hearts, J of clubs, K of hearts, 4 of diamonds, 
+2 of clubs, 8 of hearts, A of spades, T of diamonds, 3 of clubs, 
+9 of diamonds, A of clubs, 7 of diamonds)
+
+Hand = (K of diamonds, J of hearts, A of diamonds, T of clubs, J of spades, 
+2 of diamonds, 9 of hearts, 7 of hearts, 8 of clubs, 6 of spades, 
+7 of spades, K of clubs, 2 of hearts, Q of diamonds, 4 of hearts, 
+4 of clubs, 7 of clubs)
+
+Hand = (6 of hearts, 8 of diamonds, 5 of hearts, 6 of clubs, 3 of spades, 
+8 of spades, A of hearts, Q of hearts, 3 of hearts, K of spades, 
+T of spades, Q of spades, 5 of diamonds, 9 of spades, 5 of spades, 
+5 of clubs, 3 of diamonds)
+/*
