@@ -138,6 +138,11 @@ public class Assign3
          deckCount = deckCount == 2 ? 1 : 2;
          if (i < 3)
             deck.init(deckCount);
+         if (i >= 1)
+         {
+            shuffle = true;
+            deck.shuffle();
+         }
       }
       //END TESTS***************************************************************
       
