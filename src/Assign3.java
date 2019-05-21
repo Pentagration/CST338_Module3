@@ -357,7 +357,6 @@ class Card
    {
       boolean isValid = false;
       
-      //for (char index : validValues)
       for (char index : cValue)
       {
          if (Character.toUpperCase(value) == index)
@@ -510,8 +509,6 @@ class Hand
    * @return card
    */
    public Card inspectCard(int k)
-   //should we add a check to see if the int k is out of bounds of the array
-   //before going into the check below?
    {
       if (this.myCards[k] != null)
       {
@@ -528,7 +525,7 @@ class Hand
 
 //START class Deck
 /**
-*Deck class holds all available cards for disturbution to hands.
+*Deck class holds all available cards for distribution to hands.
 */
 class Deck
 {
