@@ -252,7 +252,7 @@ class Card
    private Suit suit;
    private boolean errorFlag;
    
-   /*
+   /**
     * There is a default Card constructor Card() that sets the card to
     * 'A', Suit.spades.  
     * 
@@ -279,8 +279,8 @@ class Card
    
    //START mutators
    /**
-    * public boolean set(char value, Suit suit) checks that a valid card is being
-    * set.
+    * public boolean set(char value, Suit suit) checks that a valid card is 
+    * being set.
     * 
     * @param value 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'A'
     * @param suit clubs, diamonds, hearts, spades
@@ -345,6 +345,14 @@ class Card
    }
    //END accessors
    
+   /**
+    * priate boolean isValid(char value, Suit suit) returns true if value is a
+    * valid card value and false otherwise.
+    * 
+    * @param value
+    * @param suit
+    * @return true or false
+    */
    private boolean isValid(char value, Suit suit)
    {
       boolean isValid = false;
@@ -498,6 +506,7 @@ class Hand
    
    /**
    * inspectCard accesses individual card (k).
+   * @param k an integer
    * @return card
    */
    public Card inspectCard(int k)
@@ -551,7 +560,9 @@ class Deck
 
    /**
    * init member function 
-   * Initializes deck with correct number of instanciated cards. 
+   * Initializes deck with correct number of instantiated cards. 
+   * 
+   * @param numPacks number of decks in integer form to use
    */
    public void init(int numPacks)
    {
@@ -584,7 +595,9 @@ class Deck
    }
    
    /**
-   * dealCard returns a card while topCard is not negative, otherwise return null
+   * dealCard returns a card while topCard is not negative, otherwise return 
+   * null
+   * @return a Card object
    */
    public Card dealCard()
    {
@@ -595,6 +608,7 @@ class Deck
 
    /**
    * getTopCard returns topCard integer
+   * @return topCard in integer form
    */
    public int getTopCard()
    {
